@@ -18,42 +18,59 @@
 </head>
 <body>
 <jsp:include page="../welcome.jsp" />
-<div class="container">
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Référence</th>
-            <th>Nom</th>
-            <th>Stock</th>
-        </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${productList}" var="product">
-                <tr>
-                    <td>${product.ref}</td>
-                    <td>${product.name}</td>
-                    <td>${product.stock}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Liste des produits</h5>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Référence</th>
+                            <th>Nom</th>
+                            <th>Stock</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${productList}" var="product">
+                            <tr>
+                                <td>${product.ref}</td>
+                                <td>${product.name}</td>
+                                <td>${product.stock}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ajout d'un produit</h5>
+                    <form action="products" method="post">
+                        <div class="mb-3">
+                            <label for="inputRef" class="form-label">Référence</label>
+                            <input type="text" name="ref" class="form-control" id="inputRef">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputName" class="form-label">Nom</label>
+                            <input type="text" name="name" class="form-control" id="inputName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputStock" class="form-label">Stock</label>
+                            <input type="number" name="stock" class="form-control" id="inputStock">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ajouter Produit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-<div class="container">
-    <form action="products" method="post">
-        <div class="mb-3">
-            <label for="inputRef" class="form-label">Référence</label>
-            <input type="text" name="ref" class="form-control" id="inputRef">
-        </div>
-        <div class="mb-3">
-            <label for="inputName" class="form-label">Nom</label>
-            <input type="text" name="name" class="form-control" id="inputName">
-        </div>
-        <div class="mb-3">
-            <label for="inputStock" class="form-label">Stock</label>
-            <input type="number" name="stock" class="form-control" id="inputStock">
-        </div>
-        <button type="submit" class="btn btn-primary">Ajouter Produit</button>
-    </form>
-</div>
+
 </body>
 </html>
