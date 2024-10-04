@@ -18,8 +18,6 @@ public class PrivateFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
@@ -37,7 +35,7 @@ public class PrivateFilter implements Filter {
         if (username != null || chemin.equals("/") || chemin.equals("/login") || chemin.equals("/sigup")
                 || chemin.equals("/logout") || chemin.equals("/index.jsp")
                 || chemin.equals("/login") && method.equalsIgnoreCase("POST")
-                || chemin.equals("/singup") && method.equalsIgnoreCase("POST") || chemin.startsWith("/public/"))
+                || chemin.equals("/singup") && method.equalsIgnoreCase("POST") || chemin.startsWith("/public/") || chemin.startsWith("/resources/"))
             chain.doFilter(request, response);
         else
             res.sendRedirect(req.getContextPath());
@@ -45,7 +43,6 @@ public class PrivateFilter implements Filter {
 
     @Override
     public void destroy() {
-        // TODO Auto-generated method stub
 
     }
 
